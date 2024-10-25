@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Photo Viewer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="randomPhoto" src="" alt="Random Photo">
+
+    <script>
+        // Automatically generate paths for 457 photos
+        const photos = Array.from({ length: 457 }, (_, i) => `photos/photo${i + 1}.jpg`);
+
+        function getRandomPhoto() {
+            const randomIndex = Math.floor(Math.random() * photos.length);
+            return photos[randomIndex];
+        }
+
+        document.getElementById('randomPhoto').src = getRandomPhoto();
+    </script>
+
+</body>
+</html>
